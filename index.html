@@ -2,37 +2,47 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Lamine Kane — Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+
   <meta name="description" content="Portfolio of Lamine Kane — Computer Science student at Lincoln University.">
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <main class="page-shell">
+
     <!-- iPhone mockup -->
     <div class="iphone">
+
+      <!-- Top bar -->
       <header class="top-bar">
         <div class="notch"></div>
         <div class="status">Lamine Kane</div>
       </header>
-      <div class="profile-section">
-    
-</div>
 
+      <!-- Profile section (blank for now, optional use later) -->
+      <div class="profile-section"></div>
 
+      <!-- Home Screen -->
       <nav class="home-screen">
+
+        <!-- App icons row -->
         <div class="app-row">
           <button class="app-card" data-target="about.html">
             <div class="app-icon">👤</div>
             <div class="app-label">About</div>
           </button>
+
           <button class="app-card" data-target="projects.html">
             <div class="app-icon">💼</div>
             <div class="app-label">Projects</div>
           </button>
         </div>
 
+        <!-- Widgets row -->
         <div class="widget-row">
+
           <!-- Daily Fact Widget -->
           <section class="widget fact-widget" id="daily-fact">
             <h3>Daily Fact</h3>
@@ -41,28 +51,25 @@
             <small class="fact-source">sourced from a public facts API</small>
           </section>
 
-          <!-- Mini bio widget -->
+          <!-- Mini Bio Widget -->
           <section class="widget mini-bio">
-             <!-- Add image here -->
-    <img src="DSC09603 (1).jpeg" class="profile-pic" alt="Lamine Kane">
+            <img src="images/profile.jpg" class="profile-pic" alt="Lamine Kane">
+
             <h3>Welcome</h3>
-            <p><strong>Lamine Kane</strong><br>
-            Computer Science • Lincoln University</p>
-            <p class="tiny">Baltimore, MD • Track & Field • Student Ambassador</p>
+            <p>
+              <strong>Lamine Kane</strong><br>
+              Computer Science • Lincoln University
+            </p>
+
+            <p class="tiny">
+              Baltimore, MD • Track & Field • Student Ambassador
+            </p>
+
             <a class="open-about" href="about.html">More about me →</a>
           </section>
+
         </div>
 
+        <!-- Bottom dock -->
         <footer class="dock">
-          <a class="dock-btn" href="projects.html">Portfolio</a>
-          <a class="dock-btn" href="contact.html">Contact</a>
-        </footer>
-      </nav>
-
-      <div class="home-button" role="button" aria-label="Home"></div>
-    </div>
-  </main>
-
-  <script src="script.js"></script>
-</body>
-</html>
+          <a class="dock-btn" href="projects.html">Portf
