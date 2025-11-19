@@ -2,28 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name • Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lamine Kane — Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Portfolio of Lamine Kane — Computer Science student at Lincoln University.">
 </head>
 <body>
-  <nav class="nav">
-    <a href="./">Home</a>
-    <a href="./projects.html">Projects</a>
-    <a href="./contact.html">Contact</a>
-    <button id="themeToggle" aria-label="Toggle theme">🌓</button>
-  </nav>
+  <main class="page-shell">
+    <!-- iPhone mockup -->
+    <div class="iphone">
+      <header class="top-bar">
+        <div class="notch"></div>
+        <div class="status">Lamine Kane</div>
+      </header>
 
-  <header class="hero">
-    <img class="avatar" src="assets/avatar.png" alt="Your portrait" />
-    <h1>Hello, I’m <span id="studentName">Your Name</span></h1>
-    <p class="tagline">Web Design & Development Student</p>
-  </header>
+      <nav class="home-screen">
+        <div class="app-row">
+          <button class="app-card" data-target="about.html">
+            <div class="app-icon">👤</div>
+            <div class="app-label">About</div>
+          </button>
+          <button class="app-card" data-target="projects.html">
+            <div class="app-icon">💼</div>
+            <div class="app-label">Projects</div>
+          </button>
+        </div>
 
-  <section class="api">
-    <h2>API Demo</h2>
-    <p id="quote">Loading a quote via fetch()…</p>
-  </section>
+        <div class="widget-row">
+          <!-- Daily Fact Widget -->
+          <section class="widget fact-widget" id="daily-fact">
+            <h3>Daily Fact</h3>
+            <p class="fact-text">Loading your fact…</p>
+            <button id="new-fact-btn" class="small-btn">Fetch new fact</button>
+            <small class="fact-source">sourced from a public facts API</small>
+          </section>
+
+          <!-- Mini bio widget -->
+          <section class="widget mini-bio">
+            <h3>Welcome</h3>
+            <p><strong>Lamine Kane</strong><br>
+            Computer Science • Lincoln University</p>
+            <p class="tiny">Baltimore, MD • Track & Field • Student Ambassador</p>
+            <a class="open-about" href="about.html">More about me →</a>
+          </section>
+        </div>
+
+        <footer class="dock">
+          <a class="dock-btn" href="projects.html">Portfolio</a>
+          <a class="dock-btn" href="contact.html">Contact</a>
+        </footer>
+      </nav>
+
+      <div class="home-button" role="button" aria-label="Home"></div>
+    </div>
+  </main>
 
   <script src="script.js"></script>
 </body>
