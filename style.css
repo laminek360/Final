@@ -1,17 +1,163 @@
-:root { color-scheme: light dark; --w: 900px; }
-*{box-sizing:border-box} body{font:16px/1.6 system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;margin:0}
-.nav{display:flex;gap:12px;align-items:center;justify-content:center;padding:12px;border-bottom:1px solid #e5e5e5}
-.nav a{text-decoration:none;padding:6px 10px;border-radius:8px}
-.nav a.active,.nav a:hover{background:rgba(127,127,127,.15)}
-#themeToggle{margin-left:auto}
-.hero{max-width:var(--w);margin:24px auto;text-align:center;padding:24px}
-.avatar{width:120px;height:120px;border-radius:50%;object-fit:cover;display:block;margin:0 auto 12px}
-.tagline{opacity:.8}
-.grid{max-width:var(--w);margin:24px auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;padding:0 16px}
-.card{padding:16px;border:1px solid #e5e5e5;border-radius:12px;background:#fff}
-.stack{max-width:600px;margin:24px auto;padding:0 16px}
-form{display:grid;gap:12px}
-label{display:grid;gap:6px}
-input,textarea,button{font:inherit;padding:10px;border:1px solid #ccc;border-radius:8px}
-button{cursor:pointer}
-@media (prefers-color-scheme: dark){ .card{background:#111;border-color:#333} }
+:root{
+  --bg: #0b0b0d;
+  --iphone: #0f1720;
+  --card: #0f1725;
+  --muted: #9aa4b2;
+  --accent: #6ee7b7;
+  --glass: rgba(255,255,255,0.04);
+  --radius: 20px;
+  --text: #e6eef6;
+  --tiny: 13px;
+  --maxwidth: 420px;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* page shell centers the iPhone mockup */
+.page-shell{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background: radial-gradient(1200px 600px at 10% 20%, rgba(12,14,20,1), transparent),
+              linear-gradient(180deg, #040405 0%, #0a0a0c 100%);
+  padding:30px;
+}
+
+/* iPhone mockup */
+.iphone{
+  width: 360px;
+  max-width: var(--maxwidth);
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius:34px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.03);
+  overflow:hidden;
+  position: relative;
+}
+
+/* top bar with notch */
+.top-bar{
+  height:44px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  position:relative;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), transparent);
+}
+.top-bar .notch{
+  position:absolute;
+  top:6px;
+  left:50%;
+  transform:translateX(-50%);
+  width:160px;
+  height:6px;
+  border-radius:6px;
+  background: rgba(0,0,0,0.35);
+}
+.status{ color:var(--muted); font-size:14px;}
+
+/* home screen layout */
+.home-screen{
+  padding:18px;
+  display:flex;
+  flex-direction:column;
+  gap:14px;
+}
+
+/* app cards */
+.app-row{ display:flex; gap:12px; justify-content:space-between;}
+.app-card{
+  width: calc(50% - 6px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+  border-radius:14px;
+  padding:12px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:8px;
+  border:1px solid rgba(255,255,255,0.02);
+  color:var(--text);
+  cursor:pointer;
+}
+.app-icon{ font-size:28px; }
+.app-label{ font-size:13px; color:var(--muted); }
+
+/* widgets */
+.widget-row{ display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
+.widget{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.008));
+  padding:12px;
+  border-radius:12px;
+  min-height:88px;
+  border:1px solid rgba(255,255,255,0.02);
+  color:var(--text);
+  font-size:14px;
+}
+.widget h3{ margin:0 0 6px 0; font-size:14px; color:var(--accent); }
+.fact-text{ font-size:13px; color:var(--muted); margin-bottom:8px; min-height:44px; }
+.small-btn{
+  background:transparent;
+  border:1px solid rgba(255,255,255,0.06);
+  color:var(--text);
+  padding:6px 8px;
+  border-radius:8px;
+  font-size:12px;
+  cursor:pointer;
+}
+.fact-source{ display:block; margin-top:6px; color:var(--muted); font-size:11px; }
+
+/* mini bio */
+.mini-bio .tiny{ color:var(--muted); font-size:12px; margin-top:6px; }
+.open-about{ display:inline-block; margin-top:8px; color:var(--accent); text-decoration:none; font-size:13px; }
+
+/* dock */
+.dock{
+  margin-top:8px; display:flex; justify-content:space-between;
+}
+.dock-btn{
+  flex:1; text-align:center; padding:10px 8px; margin:0 6px; border-radius:12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+  color:var(--text); text-decoration:none; font-weight:600; font-size:14px;
+  border:1px solid rgba(255,255,255,0.02);
+}
+
+/* home button */
+.home-button{
+  width:64px; height:64px; border-radius:50%;
+  margin:14px auto 18px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.005));
+  border:1px solid rgba(255,255,255,0.02);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.5);
+}
+
+/* content pages (about/projects/contact) */
+.content{
+  max-width:900px; margin:30px auto; padding:18px;
+  color:var(--text);
+}
+.back-link{ color:var(--muted); text-decoration:none; display:inline-block; margin-bottom:12px; }
+.about-section, .projects-section, .contact-section{
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+  padding:18px; border-radius:12px; border:1px solid rgba(255,255,255,0.02);
+}
+.lead{ color:var(--muted); font-size:16px; }
+.project-grid{ display:grid; grid-template-columns: 1fr 1fr; gap:14px; margin-top:12px; }
+.project-card{ padding:12px; border-radius:10px; background:var(--card); }
+.project-meta{ color:var(--muted); font-size:13px; margin-bottom:6px; }
+.project-link{ color:var(--accent); text-decoration:none; font-weight:600; }
+
+/* contact form */
+.contact-form{ display:flex; flex-direction:column; gap:10px; margin-top:8px; }
+.contact-form label{ display:flex; flex-direction:column; color:var(--muted); font-size:13px; }
+.contact-form input, .contact-form textarea{
+  margin-top:6px; padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.04);
+  background: rgba(255,255,255,0.02); color:var(--text);
+}
+.primary-btn{ padding:10px 14px; border-radius:10px; border:none; cursor:pointer; background:linear-gradient(90deg, #0ea5a0, #34d399); color:#04201a; font-weight:700; }
+
+/* small screens */
+@media (max-width:600px){
+  .project-grid{ grid-template-columns: 1fr; }
+  .page-shell{ padding:10px; }
+  .iphone{ width: 94vw; }
+}
