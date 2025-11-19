@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <nav class="nav">
+    <a href="./">Home</a>
+    <a href="./projects.html">Projects</a>
+    <a class="active" href="./contact.html">Contact</a>
+  </nav>
+
+  <main class="stack">
+    <form id="contactForm">
+      <label>Name <input name="name" required></label>
+      <label>Email <input name="email" type="email" required></label>
+      <label>Message <textarea name="message" rows="5" required></textarea></label>
+      <button type="submit">Send</button>
+      <p id="status" role="status" aria-live="polite"></p>
+    </form>
+  </main>
+
+  <script type="module">
+    // Example AJAX submit to a public echo service (or replace with Netlify Forms / SheetDB)
+    const form = document.getElementById('contactForm');
+    const status = document.getElementById('status');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      status.textContent = 'Sending…';
+      try {
+        const res = await fetch('https://httpbin.org/post', {
+          method: 'POST',
+          headers: {'Content-Type':'application/json'},
+          body: JSON.stringify(Object.fromEntries(new FormData(form)))
+        });
+        if (!res.ok) throw new Error('Network error');
+        status.textContent = 'Sent! (Demo)';
+        form.reset();
+      } catch (err) {
+        status.textContent = 'Failed to send.';
+      }
+    });
+  </script>
+</body>
+</html>
